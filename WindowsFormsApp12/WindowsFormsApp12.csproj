@@ -73,6 +73,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -86,6 +87,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HelpApplication_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Font_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cut_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paste_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FindSymbol_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SelectAll_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DateTimeAxis_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DatePicker_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Time_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Create_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CreateMessage_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CreateNewGraph_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CreatePhysicalEnvironment_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_Open_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveAs_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitFullScreen_16x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

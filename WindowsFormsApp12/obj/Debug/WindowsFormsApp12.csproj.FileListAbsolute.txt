@@ -20,3 +20,14 @@ C:\Users\roads\Desktop\WindowsFormsApp12\WindowsFormsApp12\obj\Debug\WindowsForm
 C:\Users\roads\Desktop\WindowsFormsApp12\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.csproj.CoreCompileInputs.cache
 C:\Users\roads\Desktop\WindowsFormsApp12\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.exe
 C:\Users\roads\Desktop\WindowsFormsApp12\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.pdb
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\bin\Debug\WindowsFormsApp12.exe.config
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\bin\Debug\WindowsFormsApp12.exe
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\bin\Debug\WindowsFormsApp12.pdb
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.csprojAssemblyReference.cache
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.Find.resources
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.MainForm.resources
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.Properties.Resources.resources
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.csproj.GenerateResource.cache
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.csproj.CoreCompileInputs.cache
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.exe
+X:\ProjectsC#\MyNotePad\WindowsFormsApp12\obj\Debug\WindowsFormsApp12.pdb

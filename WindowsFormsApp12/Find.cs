@@ -16,6 +16,7 @@ namespace WindowsFormsApp12
         public Find()
         {
             InitializeComponent();
+            
         }
 
         private void buttonCancale_Click(object sender, EventArgs e)
@@ -25,23 +26,22 @@ namespace WindowsFormsApp12
 
         private void buttonFind_Click(object sender, EventArgs e)
         {
-            /*if (this.Owner?.Controls["textBox1"].Text.IndexOf(textBoxFind.Text) != -1)
-            {
-                (this.Owner?.Controls["textBox1"] as TextBox).SelectionStart = (int)this.Owner?.Controls["textBox1"].Text.IndexOf(textBoxFind.Text);
-                (this.Owner?.Controls["textBox1"] as TextBox).SelectionLength = textBoxFind.TextLength;
-                positionFind = (int)this.Owner?.Controls["textBox1"].Text.IndexOf(textBoxFind.Text);
-                positionFind++;
-            }
-            else
-                MessageBox.Show($"not find: {textBoxFind.Text}", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);*/
-
+            //    if (this.Owner?.Controls["textBox1"].Text.IndexOf(textBoxFind.Text) != -1)
+            //    {
+            //        (this.Owner?.Controls["textBox1"] as TextBox).SelectionStart = (int)this.Owner?.Controls["textBox1"].Text.IndexOf(textBoxFind.Text);
+            //        (this.Owner?.Controls["textBox1"] as TextBox).SelectionLength = textBoxFind.TextLength;
+            //        positionFind = (int)this.Owner?.Controls["textBox1"].Text.IndexOf(textBoxFind.Text);
+            //        positionFind++;
+            //    }
+            //    else
+            //        MessageBox.Show($"not find: {textBoxFind.Text}", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             FindAndSelect(textBoxFind.Text);
         }
         public bool FindAndSelect(string TextToFind)
         {
 
-            int position = (this.Owner?.Controls["textBox1"] as TextBox).Text.IndexOf(TextToFind, positionFind);
+            int position = (Owner as MainForm).mainTextBox.Text.IndexOf(TextToFind, positionFind);
 
             if (position == -1)
             {
@@ -49,8 +49,8 @@ namespace WindowsFormsApp12
                 return false;
             }
 
-            (this.Owner?.Controls["textBox1"] as TextBox).SelectionStart = position;
-            (this.Owner?.Controls["textBox1"] as TextBox).SelectionLength = TextToFind.Length;
+            (Owner as MainForm).mainTextBox.SelectionStart = position;
+            (Owner as MainForm).mainTextBox.SelectionLength = TextToFind.Length;
             positionFind = position;
             positionFind++;
             return true;
