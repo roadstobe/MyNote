@@ -14,7 +14,7 @@ namespace WindowsFormsApp12
     public partial class MainForm : Form
     {
         static string opernOrCreateNew;
-        
+        string draft;
         public MainForm()
         {
             InitializeComponent();
@@ -23,7 +23,6 @@ namespace WindowsFormsApp12
                 selectAllPanel.Enabled = false;
                 selectAllToolStripMenuItem.Enabled = false;
             }
-            
         }
 
         void openFile(OpenFileDialog ofd)
@@ -40,11 +39,13 @@ namespace WindowsFormsApp12
         }
         void saveFile(string check)
         {
+            draft = mainTextBox.Text;
             if (check != null)
             {
+                
                 using (StreamWriter sr = new StreamWriter(check))
                 {
-                    sr.Write(mainTextBox.Text);
+                    sr.Write(draft);
                 }
             }
             else
@@ -54,7 +55,7 @@ namespace WindowsFormsApp12
                 {
                     using (StreamWriter sr = new StreamWriter(sfd.FileName))
                     {
-                        sr.Write(mainTextBox.Text);
+                        sr.Write(draft);
                     }
                     opernOrCreateNew = sfd.FileName;
                 }
@@ -153,8 +154,6 @@ namespace WindowsFormsApp12
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want save file?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                saveAs();
             this.Close();
         }
 
@@ -174,81 +173,35 @@ namespace WindowsFormsApp12
                 toolStripPanel.Visible = false;
             }
         }
-        void cut()
-        {
-            mainTextBox.Cut();
-        }
-        void copy()
-        {
-            mainTextBox.Copy();
-        }
-        void paste()
-        {
-            mainTextBox.Paste();
-        }
-        void del()
-        {
-            
-        }
-        void selectAll()
-        {
-            mainTextBox.SelectAll();
-        }
+      
+        // FOR EDIT
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cut();
+            mainTextBox.Cut();
         }
 
         private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            copy();
+            mainTextBox.Copy();
         }
 
         private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            paste();
+            mainTextBox.Paste();
         }
 
         private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selectAll();
+            mainTextBox.SelectAll();
+            checkEnableCutCopyPasteSelectAll();
         }
 
-        private void ToolStripButton1_Click(object sender, EventArgs e)
-        {
-            cut();
-        }
-
-        private void PanelCopy_Click(object sender, EventArgs e)
-        {
-            copy();
-        }
-
-        private void PanelPaste_Click(object sender, EventArgs e)
-        {
-            paste();
-        }
-
-        private void SelectAllPanel_Click(object sender, EventArgs e)
-        {
-            selectAll();
-        }
-
+        /// //////////////////////////////////////////////////////////////////////
+      
         private void ContextMenuStrip_Opening_1(object sender, CancelEventArgs e)
         {
             checkEnableCutCopyPasteSelectAll();
         }
-
-        private void CutExtraPanel_Click(object sender, EventArgs e)
-        {
-            cut();
-        }
-
-        private void FindPanel_Click(object sender, EventArgs e)
-        {
-            findWord();
-        }
-
         private void MainTextBox_TextChanged(object sender, EventArgs e)
         {
             if (mainTextBox.Text == "")
@@ -257,6 +210,9 @@ namespace WindowsFormsApp12
             }
             else
                 selectAllPanel.Enabled = true;
+            countWords.Text = mainTextBox.Text.Length.ToString();
+            checkEnableCutCopyPasteSelectAll();
+
         }
 
         void checkEnableCutCopyPasteSelectAll()
@@ -267,24 +223,24 @@ namespace WindowsFormsApp12
                 copyExtraPanel.Enabled = false;
                 cutToolStripMenuItem.Enabled = false;
                 copyToolStripMenuItem.Enabled = false;
+                panelCopy.Enabled = false;
+                cutPanel.Enabled = false;
+
+                countSelect.Visible = false;
+                countSelectSymbol.Visible = false;
             }
             else
             {
+                panelCopy.Enabled = true;
+                cutPanel.Enabled = true;
                 cutExtraPanel.Enabled = true;
                 copyExtraPanel.Enabled = true;
                 cutToolStripMenuItem.Enabled = true;
                 copyToolStripMenuItem.Enabled = true;
-            }
 
-            if (!Clipboard.ContainsText())
-            {
-                pasteExtraPanel.Enabled = false;
-                pasteToolStripMenuItem.Enabled = false;
-            }
-            else
-            {
-                pasteExtraPanel.Enabled = true;
-                pasteToolStripMenuItem.Enabled = true;
+                countSelect.Visible = true;
+                countSelectSymbol.Visible = true;
+                countSelectSymbol.Text = mainTextBox.SelectionLength.ToString();
             }
             if (mainTextBox.Text == "")
             {
@@ -297,10 +253,6 @@ namespace WindowsFormsApp12
                 selectAllToolStripMenuItem.Enabled = true;
             }
         }
-        private void FormatToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            checkEnableCutCopyPasteSelectAll();
-        }
 
 
         private void MainTextBox_MouseUp(object sender, MouseEventArgs e)
@@ -309,11 +261,16 @@ namespace WindowsFormsApp12
             {
                 panelCopy.Enabled = false;
                 cutPanel.Enabled = false;
+                countSelect.Visible = false;
+                countSelectSymbol.Visible = false;
             }
             else
             {
                 cutPanel.Enabled = true;
                 panelCopy.Enabled = true;
+                countSelect.Visible = true;
+                countSelectSymbol.Visible = true;
+                countSelectSymbol.Text = mainTextBox.SelectionLength.ToString();
             }
         }
 
@@ -339,9 +296,32 @@ namespace WindowsFormsApp12
             opernOrCreateNew = null;
         }
 
-        private void FindToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void FormatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            findWord();
+            checkEnableCutCopyPasteSelectAll();
+        }
+
+        private void VievStatusBarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(vievStatusBarToolStripMenuItem.Checked == true)
+            {
+                statusStrip1.Visible = true;
+            }
+            else
+            {
+                statusStrip1.Visible = false;
+            }
+        }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Melnychuk Vasyl (roadstobe)", "Developer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Do you want save change?", "Change", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                saveFile(opernOrCreateNew);
         }
     }
 }
